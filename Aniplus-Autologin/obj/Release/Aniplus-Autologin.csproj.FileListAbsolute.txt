@@ -1,0 +1,10 @@
+C:\Users\John\Documents\Aniplus-Autologin\Aniplus-Autologin\bin\Release\Aniplus-Autologin.exe.config
+C:\Users\John\Documents\Aniplus-Autologin\Aniplus-Autologin\bin\Release\Aniplus-Autologin.exe
+C:\Users\John\Documents\Aniplus-Autologin\Aniplus-Autologin\bin\Release\Aniplus-Autologin.pdb
+C:\Users\John\Documents\Aniplus-Autologin\Aniplus-Autologin\bin\Release\WebDriver.dll
+C:\Users\John\Documents\Aniplus-Autologin\Aniplus-Autologin\bin\Release\WebDriver.xml
+C:\Users\John\Documents\Aniplus-Autologin\Aniplus-Autologin\obj\Release\Aniplus-Autologin.csproj.CoreCompileInputs.cache
+C:\Users\John\Documents\Aniplus-Autologin\Aniplus-Autologin\obj\Release\Aniplus-Autologin.csproj.CopyComplete
+C:\Users\John\Documents\Aniplus-Autologin\Aniplus-Autologin\obj\Release\Aniplus-Autologin.exe
+C:\Users\John\Documents\Aniplus-Autologin\Aniplus-Autologin\obj\Release\Aniplus-Autologin.pdb
+C:\Users\John\Documents\Aniplus-Autologin\Aniplus-Autologin\obj\Release\Aniplus-Autologin.csprojAssemblyReference.cache

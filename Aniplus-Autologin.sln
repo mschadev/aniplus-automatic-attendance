@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aniplus-Autologin", "Aniplus-Autologin\Aniplus-Autologin.csproj", "{84830FD4-1469-479A-B885-82D7B6199EEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84830FD4-1469-479A-B885-82D7B6199EEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84830FD4-1469-479A-B885-82D7B6199EEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84830FD4-1469-479A-B885-82D7B6199EEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84830FD4-1469-479A-B885-82D7B6199EEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {357B23DA-8D03-4713-94DF-BA4E6B257FD2}
+	EndGlobalSection
+EndGlobal
