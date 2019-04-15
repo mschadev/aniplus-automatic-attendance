@@ -10,6 +10,7 @@
 작업 스케줄러를 삭제할려면 관리자 권한으로 delete.cmd를 실행하세요.
 
 # 사용 라이브러리
-[Selenium](https://www.seleniumhq.org/)-[라이센스](http://www.apache.org/licenses/LICENSE-2.0) 
+[Selenium](https://www.seleniumhq.org/)-[라이센스](http://www.apache.org/licenses/LICENSE-2.0) <br>
+DotNetSeleniumExtras.WaitHelpers 
 # 라이센스
 [라이센스](https://github.com/zxc010613/Aniplus-Automatic-Attendance/blob/master/LICENSE)
