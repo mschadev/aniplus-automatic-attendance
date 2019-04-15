@@ -20,7 +20,7 @@ namespace Aniplus_Autologin
         {
             ini ini = new ini();
             string Check = ini.GetIni("Info", "Lastlogin-Datetime");
-            System.IO.File.AppendAllText(System.Windows.Forms.Application.StartupPath+@"\Log.txt", "Start:" + DateTime.Now.ToString() + Environment.NewLine);
+            Log("Start:" + DateTime.Now.ToString());
             if(Check == DateTime.Now.ToShortDateString())
             {
                 Environment.Exit(0);
@@ -46,30 +46,42 @@ namespace Aniplus_Autologin
                 context.Clear();
                 context.SendKeys(PW); //비밀번호 입력
 
-                driver.FindElement(By.Id("btnLogin")).Click();
-                System.Threading.Thread.Sleep(2000); //로그인 결과 기다림
-                try
+                driver.FindElement(By.Id("btnLogin")).Click(); //로그인 버튼 클릭
+                while (true)
                 {
-                    IAlert Alert = driver.SwitchTo().Alert();
-
-                    Console.Clear();
-                    Console.WriteLine("로그인 실패:" + Alert.Text);
-                    Alert.Accept();
-                    Console.Write("ID:");
-                    ID = Console.ReadLine();
-                    Console.Write("PW:");
-                    PW = Console.ReadLine();
-                }
-                catch (Exception) { //알림창 없음
-                    Login = true;
-                    ini.SetIni("Login", "ID", ID);
-                    ini.SetIni("Login", "PW", PW);
-                    ini.SetIni("Info", "Lastlogin-Datetime",DateTime.Now.ToShortDateString());
+                    IAlert Alert = SeleniumExtras.WaitHelpers.ExpectedConditions.AlertIsPresent().Invoke(driver);
+                    if (Alert != null) //팝업창이 있는지
+                    {
+                        Console.Clear();
+                        Console.WriteLine("로그인 실패:" + Alert.Text);
+                        Alert.Accept();
+                        Console.Write("ID:");
+                        ID = Console.ReadLine();
+                        Console.Write("PW:");
+                        PW = Console.ReadLine();
+                        break;
+                    }
+                    IWebElement Name = SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName("id")).Invoke(driver);
+                    if(Name != null) //로그인 성공해서 닉네임이 존재하는지
+                    {
+                        ini.SetIni("Login", "ID", ID);
+                        ini.SetIni("Login", "PW", PW);
+                        ini.SetIni("Info", "Lastlogin-Datetime", DateTime.Now.ToShortDateString());
+                        Log(Name.Text + "-로그인 성공");
+                        Login = true;
+                        break;
+                    }
+                    System.Threading.Thread.Sleep(1000);
                 }
             }
             driver.Quit();
             driver.Dispose();
+            Log("Success");
             Environment.Exit(0);
+        }
+        static void Log(string str)
+        {
+            System.IO.File.AppendAllText(System.Windows.Forms.Application.StartupPath + @"\Log.txt", str + Environment.NewLine);
         }
     }
 }
