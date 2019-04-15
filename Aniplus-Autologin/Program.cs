@@ -19,12 +19,19 @@ namespace Aniplus_Autologin
         static void Main(string[] args)
         {
             ini ini = new ini();
+
+#if DEBUG
+
+
+#else
             string Check = ini.GetIni("Info", "Lastlogin-Datetime");
             Log("Start:" + DateTime.Now.ToString());
-            if(Check == DateTime.Now.ToShortDateString())
+            if (Check == DateTime.Now.ToShortDateString())
             {
                 Environment.Exit(0);
             }
+
+#endif
             string ID = ini.GetIni("Login", "ID");
             string PW = ini.GetIni("Login", "PW");
             if (ID == "" || PW == "")
@@ -61,9 +68,10 @@ namespace Aniplus_Autologin
                         PW = Console.ReadLine();
                         break;
                     }
-                    IWebElement Name = SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName("id")).Invoke(driver);
-                    if(Name != null) //로그인 성공해서 닉네임이 존재하는지
+                    
+                    if (IsElementPresent(driver,By.ClassName("id"))) //로그인 성공해서 닉네임이 존재하는지
                     {
+                        IWebElement Name = driver.FindElement(By.ClassName("id"));
                         ini.SetIni("Login", "ID", ID);
                         ini.SetIni("Login", "PW", PW);
                         ini.SetIni("Info", "Lastlogin-Datetime", DateTime.Now.ToShortDateString());
@@ -78,6 +86,18 @@ namespace Aniplus_Autologin
             driver.Dispose();
             Log("Success");
             Environment.Exit(0);
+        }
+        static bool IsElementPresent(IWebDriver driver,By by)
+        {
+            try
+            {
+                driver.FindElement(by);
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
         }
         static void Log(string str)
         {
