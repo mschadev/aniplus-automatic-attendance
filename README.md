@@ -1,4 +1,6 @@
-﻿# Aniplus-Automatic-Attendance
+﻿# 관리되지 않음
+ 이 레포지토리는 더이상 관리되지 않습니다.
+ # Aniplus-Automatic-Attendance
 
 애니플러스 자동 로그인입니다.
 윈도우 작업 스케줄러에 걸어두고 컴퓨터 켤때마다 체크합니다.
